@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzarendelés</title>
+</head>
+<body>
+<form action="" method="post">
+    <p>
+        Név: <label><input type="text" name="name"></label> <br>
+        Cím: <label><input type="text" name="address"></label>
+    </p>
+    <p>
+        <label><input type="radio" name="purchaseType" value="Kiszallitas"> Kiszállítás</label> <br>
+            <label><input type="radio" name="purchaseType" value="Elvitel"> Elvitel</label>
+    </p>
+    <p>
+        Milyen pizzát akarsz? <br>
+        <label><input type="checkbox" name="type" value="margherita"> Margherita</label> <br>
+            <label><input type="checkbox" name="type" value="hawaiian"> Hawaii</label> <br>
+                <label><input type="checkbox" name="type" value="pepperoni"> Pepperoni</label>
+    </p>
+    <p>
+        <label>Pizza mérete:
+        <select name="size" id="size">
+            <option value="nagy">Nagy</option>
+            <option value="közepes">Közepes</option>
+            <option value="kicsi">Kicsi</option>
+        </select></label>
+    </p>
+    <p>
+        <input type="submit" value="Rendelés" name="submit">
+    </p>
+</form>
+
+</body>
+</html>
