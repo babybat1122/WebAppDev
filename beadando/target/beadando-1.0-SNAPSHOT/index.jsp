@@ -1,3 +1,7 @@
+<%@ page import="java.lang.reflect.Array" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="java.time.DayOfWeek" %>
+<%@ page import="java.util.Calendar" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
@@ -6,34 +10,81 @@
     <title>JSP - Rendeles</title>
 </head>
 <body>
- Hello
- <%= 2+2 %>
-    <%--<c:if test="${(empty param.kuldo) || (empty param.cimzett) || (empty param.cim)}">
-        <h1>Kérem adja meg az összes adatot!</h1>
-    </c:if>
-    <%--<c:if test="${!(empty param.kuldo) ||!(empty param.cimzett) || !(empty param.cim)}">
-        <%! int ar = 0; int liliomar = 0; int rozsaar = 0; int gerberaar = 0; %>
-        <c:choose>
-            <c:when test="${param.csomagolas eq \"normal\"}">
-                <% ar += 100; %>
-            </c:when>
-            <c:when test="${param.csomagolas eq \"disz\"}">
-                <% ar += 500; %>
-            </c:when>
-        </c:choose>
-        <c:if test="${!(empty param.rozsadb)}">
-            <% rozsaar += request.getParameter("rozsadb");
-            <% ar += 200; %>
-        </c:if>
-        <c:if test="${!(empty param.gerbera)}">
-            <% gerberaar = ${param.gerberadb} * 250; %>
-        </c:if>
-        <c:if test="${!(empty param.liliom)}">
-            <% liliomar = ${param.liliomdb} * 200; %>
-        </c:if>
-        <% int ar = rozsadb + gerberadb + liliomdb + csomag; %>
-        <% out.print("A rendelés összege: " + ar %>
-    </c:if> --%>
+
+<%
+    int ar = 0;
+
+    if (request.getParameter("kuldo").isEmpty() || request.getParameter("kuldo").isEmpty() ||
+            request.getParameter("kuldo").isEmpty()) {
+        System.out.println("Kérem adja meg az összes adatot!");
+    }
+    else {
+        String[] viragok = request.getParameterValues("virag");
+
+        if (Arrays.asList(viragok).contains("rozsa")) {
+            if (request.getParameter("rozsadb") == "1") {
+                ar += 200;
+                System.out.println("Rózsa: 1 szál <br>");
+            }
+            if (request.getParameter("rozsadb") == "2") {
+                ar += 400;
+                System.out.println("Rózsa: 2 szál");
+            }
+            else {
+                ar += 600;
+                System.out.println("Rózsa: 3 szál");
+            }
+        }
+        if (Arrays.asList(viragok).contains("gerbera")) {
+            if (request.getParameter("gerberadb") == "1") {
+                ar += 250;
+                System.out.println("Gerbera: 1 szál");
+            }
+            if (request.getParameter("gerberadb") == "2") {
+                ar += 500;
+                System.out.println("Gerbera: 2 szál");
+            }
+            else {
+                ar += 750;
+                System.out.println("Gerbera: 3 szál");
+            }
+        }
+        if (Arrays.asList(viragok).contains("liliom")) {
+            if (request.getParameter("liliomdb") == "1") {
+                ar += 200;
+                System.out.println("Liliom: 1 szál");
+            }
+            if (request.getParameter("liliomdb") == "2") {
+                ar += 400;
+                System.out.println("Liliom: 2 szál");
+            }
+            else {
+                ar += 600;
+                System.out.println("Liliom: 3 szál");
+            }
+        }
+
+        if (Arrays.asList(request.getParameterValues("csomagolas")).contains("normal")) {
+            ar += 100;
+            System.out.println("+ sima csomagolás 100 Ft");
+        }
+        else {
+            ar += 500;
+            System.out.println("+ díszcsomagolás 500 Ft");
+        }
+        if (Calendar.DAY_OF_WEEK == 1 || Calendar.DAY_OF_WEEK == 7) {
+            ar += 750;
+            System.out.println("+ kiszállítás 500 Ft");
+        }
+        else {
+            ar += 500;
+            System.out.println("+ kiszállítás 750 Ft");
+        }
+        System.out.println("A fizetendő összeg: " + ar);
+    }
+
+    %>
+
 
 </body>
 </html>
