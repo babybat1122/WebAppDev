@@ -6,10 +6,19 @@
     <title>JSP - Rendeles</title>
 </head>
 <body>
-    <%= 2+2 %>
-    <%--<c:if test="${(empty param.kuldo) || (empty param.cimzett) || (empty param.cim)}">
-        <h1>Kérem adja meg az összes adatot!</h1>
-    </c:if>
+
+    <% int ar = 0;
+
+    if (request.getParameter("kuldo").isEmpty() || request.getParameter("kuldo").isEmpty() ||
+            request.getParameter("kuldo").isEmpty()) {
+        System.out.println("Kérem adja meg az összes adatot!");
+    }
+    else {
+        request.getParameterValues("virag");
+
+    }
+
+    %>
     <%--<c:if test="${!(empty param.kuldo) ||!(empty param.cimzett) || !(empty param.cim)}">
         <%! int ar = 0; int liliomar = 0; int rozsaar = 0; int gerberaar = 0; %>
         <c:choose>
