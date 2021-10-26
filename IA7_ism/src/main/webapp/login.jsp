@@ -8,9 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Bejelntkeztető/reg űrlap</title>
 </head>
 <body>
+    <h1>Kérjük jelentkezzen be!</h1>
+
+    <form method="post", action="check.jsp">
+        Felhasználónév: <input type="text" name="username"><br>
+        Jelszó: <input type="text" name="password"><br>
+        <input type="submit" value="Bejelentkezés">
+        <input type="submit" value="Regisztráció" name="register">
+
+    </form>
 
 </body>
 </html>
