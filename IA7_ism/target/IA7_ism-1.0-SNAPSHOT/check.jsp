@@ -31,6 +31,12 @@
 <%           }
             }
     }
+    else if (request.getParameter("logout") != null) {
+        session.invalidate(); //minden a memoban tárolt dolgot elveszít
+    %>
+        <jsp:forward page="login.jsp"/>
+    <%
+    }
     else {
 %>
         <jsp:forward page="login.jsp">

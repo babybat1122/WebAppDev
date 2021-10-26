@@ -14,8 +14,12 @@
 <head>
     <title>Főoldal</title>
 </head>
+
 <body>
-    <h1>Üdvözöljük <%= session.getAttribute("validuser") %> !</h1>
+    <h1>Üdvözöljük <%= session.getAttribute("validuser") %>!</h1>
+    <form action="check.jsp" method="post">
+        <input type="submit" name="logout" value="Kijelentkezés">
+    </form>
 </body>
 </html>
 <% }
