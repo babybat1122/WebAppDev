@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="IA7_ism:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>false</exploded>
+        <module>IA7_ism</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="archive" name="IA7_ism-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="IA7_ism:war exploded" />
+    </root>
+  </artifact>
+</component>
