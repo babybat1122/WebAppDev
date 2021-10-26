@@ -22,7 +22,7 @@
     </form>
 
     <% if (request.getParameter("errorMSG") != null) { %>
-        ${parap.errorMSG};
+        ${param.errorMSG}
     <% } %>
 </body>
 </html>
