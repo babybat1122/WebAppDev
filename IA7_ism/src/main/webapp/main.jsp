@@ -16,18 +16,17 @@
 </head>
 
 <body>
-    <h1>Üdvözöljük <%= session.getAttribute("validuser") %>!</h1>
-    <form action="check.jsp" method="post">
-        <input type="submit" name="logout" value="Kijelentkezés">
-    </form>
+<h1>Üdvözöljük <%= session.getAttribute("validuser") %>!</h1>
+<form action="check.jsp" method="post">
+    <input type="submit" name="logout" value="Kijelentkezés">
+</form>
 </body>
 </html>
-<% }
-    else {
+<% } else {
 %>
-        <jsp:forward page="login.jsp">
-            <jsp:param name="errorMSG" value="A program használatához be kell jelentkezni"/>
-        </jsp:forward>
-        <%
-}
-        %>
+<jsp:forward page="login.jsp">
+    <jsp:param name="errorMSG" value="A program használatához be kell jelentkezni"/>
+</jsp:forward>
+<%
+    }
+%>

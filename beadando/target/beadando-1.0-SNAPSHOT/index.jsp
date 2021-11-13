@@ -11,8 +11,7 @@
         if (request.getParameter("kuldo").isEmpty() || request.getParameter("kuldo").isEmpty() ||
                 request.getParameter("kuldo").isEmpty()) {
             return "Kérem adja meg az összes adatot!";
-        }
-        else {
+        } else {
             String[] viragok = request.getParameterValues("virag");
 
             if (Arrays.asList(viragok).contains("rozsa")) {
