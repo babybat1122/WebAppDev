@@ -4,16 +4,14 @@
 
 <%!
     public String ajanlo(HttpServletRequest request) {
-        String kategoria = "";
+        String[] types = request.getParameterValues("types");
 
-        if (Arrays.asList(request.getParameterValues("types")).isEmpty() ||
-                Arrays.asList(request.getParameterValues("types")).equals("")) {
+        if (Arrays.asList(types).isEmpty()) {
             return "Kérem válasszon!";
 
         } else {
-            String[] types = request.getParameterValues("types");
+
         }
-        return kategoria;
     }
 %>
 
@@ -23,7 +21,6 @@
     <title>JSP - filmajanlo</title>
 </head>
 <body>
-    <a href="hello-servlet">Hello Servlet</a>
     <%=
     ajanlo(request)
     %>
